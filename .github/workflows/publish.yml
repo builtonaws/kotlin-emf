@@ -2,6 +2,8 @@ name: Publish package to Maven Central
 on:
   release:
     types: [created]
+permissions:
+  contents: write
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -32,8 +34,6 @@ jobs:
         run: mkdir staging && cp target/*.jar staging
       - name: Upload jars to release
         uses: dwenegar/upload-release-assets@v1
-        permissions:
-          contents: write
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
