@@ -15,13 +15,11 @@
  */
 package software.amazon.cloudwatchlogs.emf.model
 
-import org.builtonaws.kotlin.emf.model.DimensionSet
-import software.amazon.cloudwatchlogs.emf.model.DimensionSet as JavaDimensionSet
-
 /**
- * Maps the wrapper's version of DimensionSet to the library's version.
+ * Side loads an equality function for the library's version of DimensionSet, for  use in testing.
  */
-internal fun DimensionSet.toJava(): JavaDimensionSet =
-    JavaDimensionSet().also {
-        it.dimensionRecords.putAll(this.dimensionRecords)
-    }
+internal fun DimensionSet.overrideEquals(other: Any?): Boolean {
+    if (this === other) return true
+    if (other == null || other !is DimensionSet) return false
+    return dimensionRecords == other.dimensionRecords
+}
