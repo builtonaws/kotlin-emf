@@ -6,7 +6,7 @@
 
     <groupId>org.builtonaws.kotlin</groupId>
     <artifactId>kotlin-emf</artifactId>
-    <version>0.2.0-SNAPSHOT+02</version>
+    <version>0.2.0-SNAPSHOT+03</version>
 
     <name>${project.groupId}:${project.artifactId}</name>
     <description>A Kotlin wrapper around AWS Embedded Metrics Framework library for Java.</description>
